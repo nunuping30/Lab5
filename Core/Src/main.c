@@ -246,22 +246,22 @@ int main(void)
 
 		  else if (RxBuffer[0] == 'd')
 		  {
-			 if(LedStatus)
+			 if(Status_LED)
 			 {
-				LedStatus = 0;
+				Status_LED = 0;
 				RxBuffer[0] = 0;
 
 				Hz = 0;
-				HAL_UART_Transmit_IT(&huart2, LedOff, strlen((char*) LedOff));
+				HAL_UART_Transmit_IT(&huart2, LED_Off, strlen((char*) LED_Off));
 				HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, SET);
 			 }
 			else
 			{
-				LedStatus = 1;
+				Status_LED = 1;
 				RxBuffer[0] = 0;
 
-				Hz = PreHz;
-				HAL_UART_Transmit_IT(&huart2, LedOn, strlen((char*) LedOn));
+				Hz = Past_Hz;
+				HAL_UART_Transmit_IT(&huart2, LED_On, strlen((char*) LED_On));
 			}
 		  }
 
