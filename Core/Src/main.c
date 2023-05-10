@@ -279,7 +279,7 @@ int main(void)
 		  break;
 
 	  case 5:
-		  Button = HAL_GPIO_ReadPin(GPIOC, GPIO_Pin_13);
+		  Button = HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13);
 		  if (Button == 1 && PastButton == 0)
 		  {
 			  HAL_UART_Transmit_IT(&huart2, UnPress, strlen((char*) UnPress));
